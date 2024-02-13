@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "../api";
+import { useParams } from "react-router-dom";
+import { MovieItem } from "../components/MovieItem";
 
 export default function MovieDetalistPage() {
+  const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   useEffect(() => {
     async function fetchData() {
@@ -15,5 +18,6 @@ export default function MovieDetalistPage() {
     fetchData();
   }, [movieId]);
 
-  return <div>{movieDetails && <MovieItem />}</div>;
+  return <div>
+    {movieDetails && <MovieItem movieData={movieDetails} />}</div>;
 }

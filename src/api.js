@@ -28,7 +28,7 @@ export const getSerchMovie = async (query) => {
   const response = await axios.get(url, options);
   return response.data;
 };
-// console.log(getSerchMovie());
+console.log(getSerchMovie());
 
 export const getMovieDetails = async (movieId) => {
   const url = `/movie/${movieId}`;
@@ -41,7 +41,7 @@ export const getMovieDetails = async (movieId) => {
   const response = await axios.get(url, options);
   return response.data;
 };
-// console.log(getMovieDetails());
+// console.log(getMovieDetails(533535));
 
 export const getMovieCredits = async (movieId) => {
   const url = `/movie/${movieId}credits`;

@@ -7,7 +7,7 @@ export const TrendMovieList = ({ trendMovies }) => {
       <ul>
         {trendMovies.map(({ id, title }) => (
           <li key={id}>
-            <NavLink to={`/movie/${id}`}>{title}</NavLink>
+            <NavLink to={`/movies/${id}`}>{title}</NavLink>
           </li>
         ))}
       </ul>
