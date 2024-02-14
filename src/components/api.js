@@ -19,16 +19,18 @@ console.log(getTrendMovies());
 export const getSerchMovie = async (query) => {
   const url = "/search/movie";
   const options = {
-    query,
     params: {
+      query,
       api_key: API_KEY,
       language: "en-US",
     },
   };
   const response = await axios.get(url, options);
+  console.log(response);
   return response.data;
 };
-console.log(getSerchMovie());
+
+// console.log(getSerchMovie("The Iron Claw"));
 
 export const getMovieDetails = async (movieId) => {
   const url = `/movie/${movieId}`;
@@ -44,7 +46,7 @@ export const getMovieDetails = async (movieId) => {
 // console.log(getMovieDetails(533535));
 
 export const getMovieCredits = async (movieId) => {
-  const url = `/movie/${movieId}credits`;
+  const url = `/movie/${movieId}/credits`;
   const options = {
     params: {
       api_key: API_KEY,
@@ -52,9 +54,10 @@ export const getMovieCredits = async (movieId) => {
     },
   };
   const response = await axios.get(url, options);
-  return response.data;
+
+  return response.data.cast;
 };
-// console.log(getMovieCredits());
+// console.log(getMovieCredits(29222));
 
 export const getMovieReviews = async (movieId) => {
   const url = `/movie/${movieId}/reviews`;
@@ -65,6 +68,7 @@ export const getMovieReviews = async (movieId) => {
     },
   };
   const response = await axios.get(url, options);
-  return response.data;
+  console.log(response);
+  return response.data.results;
 };
-// console.log(getMovieReviews());
+// console.log(getMovieReviews(634492));

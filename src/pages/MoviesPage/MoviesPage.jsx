@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { getSerchMovie } from "../api.js";
+import { getSerchMovie } from "../../components/api.js";
 import { useSearchParams } from "react-router-dom";
-import { SearchBar } from "../components/SearchBar.jsx";
-import { MovieList } from "../components/MovieList.jsx";
+import { SearchBar } from "../../components/SearchBar/SearchBar.jsx";
+import { MovieList } from "../../components/MovieList/MovieList.jsx";
 // import toast from "react-hot-toast";
 
 export default function MoviesPage() {

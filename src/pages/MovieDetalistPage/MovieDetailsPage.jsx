@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { getMovieDetails } from "../api";
+import { getMovieDetails } from "../../components/api";
 import { useParams } from "react-router-dom";
-import { MovieItem } from "../components/MovieItem";
-
+import { MovieItem } from "../../components/MovieItem/MovieItem";
+import Additional from "../../components/Additional/Additional";
+import { Outlet } from "react-router-dom";
 export default function MovieDetalistPage() {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
@@ -18,6 +19,11 @@ export default function MovieDetalistPage() {
     fetchData();
   }, [movieId]);
 
-  return <div>
-    {movieDetails && <MovieItem movieData={movieDetails} />}</div>;
+  return (
+    <div>
+      {movieDetails && <MovieItem movieData={movieDetails} />}
+      <Additional />
+      <Outlet />
+    </div>
+  );
 }

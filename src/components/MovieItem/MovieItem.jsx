@@ -6,7 +6,7 @@ export const MovieItem = ({ movieData }) => {
         alt={movieData.title}
       />
       <h1>{movieData.title}</h1>
-      <p>User score:{movieData.popularity}%</p>
+      <p>User score:{`${Math.round((movieData.vote_average / 10) * 100)}%`}</p>
       <h2>Owerview</h2>
       <p>{movieData.overview}</p>
       <h3>Ganres </h3>
