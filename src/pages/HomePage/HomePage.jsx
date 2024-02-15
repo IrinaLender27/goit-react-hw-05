@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react";
 import { getTrendMovies } from "../../components/api";
-import { TrendMovieList } from "../../components/TrendMovieList/TrendMovieList";
+import { Hero } from "../../components/Hero/Hero";
+import { MovieList } from "../../components/MovieList/MovieList";
+import { Loading } from "../../components/Loading/Loading";
+import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+
 export default function HomePage() {
   const [trendMovies, setTrendMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
+    setError(false);
+    setLoading(true);
     async function fetchData() {
       try {
         const fetchedTrandMovies = await getTrendMovies();
         setTrendMovies(fetchedTrandMovies.results);
       } catch (error) {
-        error;
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
@@ -17,7 +27,11 @@ export default function HomePage() {
 
   return (
     <div>
-      {trendMovies.length > 0 && <TrendMovieList trendMovies={trendMovies} />}
+      {loading && <Loading />}
+      {error && <ErrorMessage error={setError} />}
+      <Hero movies={trendMovies} />
+      <p>Trending today</p>
+      {trendMovies.length > 0 && <MovieList movies={trendMovies} />}
     </div>
   );
 }
