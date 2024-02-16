@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.input {
+  display: inline-block;
+  width: 300px;
+  min-height: 34px;
+  border-radius: 20px;
+  font: inherit;
+  font-size: 1.2rem;
+  border: 3px solid orangered;
+  outline: none;
+  background: none;
+  padding-left: 20px;
+}
+.iconSearch {
+  color: orangered;
+  font-size: 40px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.buttonStyle {
+  border: none;
+  background: none;
+  margin-left: 10px;
+}
+::placeholder {
+  text-align: center;
+  color: #fd5523;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+}

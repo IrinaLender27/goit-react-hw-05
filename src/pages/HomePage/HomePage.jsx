@@ -4,6 +4,7 @@ import { Hero } from "../../components/Hero/Hero";
 import { MovieList } from "../../components/MovieList/MovieList";
 import { Loading } from "../../components/Loading/Loading";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -29,8 +30,10 @@ export default function HomePage() {
     <div>
       {loading && <Loading />}
       {error && <ErrorMessage error={setError} />}
-      <Hero movies={trendMovies} />
-      <p>Trending today</p>
+      <div>
+        <Hero movies={trendMovies} />
+      </div>
+      <p className={css.title}>Trending today</p>
       {trendMovies.length > 0 && <MovieList movies={trendMovies} />}
     </div>
   );

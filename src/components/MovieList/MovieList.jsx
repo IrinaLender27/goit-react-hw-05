@@ -18,7 +18,7 @@ export const MovieList = ({ movies }) => {
               }
               alt={movie.title}
             ></img>
-            <p>{movie.title}</p>
+            <p className={css.title}>{movie.title}</p>
           </Link>
         </li>
       ))}

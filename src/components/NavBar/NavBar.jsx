@@ -8,14 +8,16 @@ const isActiv = ({ isActive }) => {
 export const NavBar = () => {
   return (
     <header className={css.header}>
-      <nav className={css.navigation}>
-        <NavLink to="/" className={isActiv}>
-          Home
-        </NavLink>
-        <NavLink to="/movies" className={isActiv}>
-          Movies
-        </NavLink>
-      </nav>
+      <div>
+        <nav className={css.navigation}>
+          <NavLink to="/" className={isActiv}>
+            Home
+          </NavLink>
+          <NavLink to="/movies" className={isActiv}>
+            Movies
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };

@@ -1,4 +1,6 @@
 import toast from "react-hot-toast";
+import css from "./SearchBar.module.css";
+import { FiSearch } from "react-icons/fi";
 
 export const SearchBar = ({ onChange }) => {
   const handleSubmit = (event) => {
@@ -12,9 +14,16 @@ export const SearchBar = ({ onChange }) => {
   };
   return (
     <header>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
+      <form onSubmit={handleSubmit} className={css.form}>
+        <input
+          type="text"
+          placeholder="search"
+          name="query"
+          className={css.input}
+        />
+        <button type="submit" className={css.buttonStyle}>
+          <FiSearch className={css.iconSearch} />
+        </button>
       </form>
     </header>
   );
