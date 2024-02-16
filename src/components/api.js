@@ -14,7 +14,6 @@ export const getTrendMovies = async () => {
   const response = await axios.get(url, options);
   return response.data;
 };
-console.log(getTrendMovies());
 
 export const getSerchMovie = async (query) => {
   const url = "/search/movie";
@@ -30,8 +29,6 @@ export const getSerchMovie = async (query) => {
   return response.data;
 };
 
-// console.log(getSerchMovie("The Iron Claw"));
-
 export const getMovieDetails = async (movieId) => {
   const url = `/movie/${movieId}`;
   const options = {
@@ -43,7 +40,6 @@ export const getMovieDetails = async (movieId) => {
   const response = await axios.get(url, options);
   return response.data;
 };
-// console.log(getMovieDetails(533535));
 
 export const getMovieCredits = async (movieId) => {
   const url = `/movie/${movieId}/credits`;
@@ -57,7 +53,6 @@ export const getMovieCredits = async (movieId) => {
 
   return response.data.cast;
 };
-// console.log(getMovieCredits(29222));
 
 export const getMovieReviews = async (movieId) => {
   const url = `/movie/${movieId}/reviews`;
@@ -71,4 +66,3 @@ export const getMovieReviews = async (movieId) => {
   console.log(response);
   return response.data.results;
 };
-// console.log(getMovieReviews(634492));
